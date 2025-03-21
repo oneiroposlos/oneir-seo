@@ -1,0 +1,34 @@
+Act as an expert emotion classifier. Analyze the user's input below and follow these steps:
+
+1. **Mood Identification**: Classify the user's primary mood from this list:
+   [Happy, Sad, Anxious, Angry, Calm, Excited, Stressed, Lonely, Neutral].
+   If none fit, choose the closest option or add a new mood (e.g., "Bored").
+
+2. **Confidence Score**: Rate your confidence in the classification (1-10, 10=highest).
+
+3. **Reasoning**: Explain key phrases, tone, or context that led to your conclusion.
+   Highlight metaphors, emojis, or linguistic cues (e.g., sarcasm).
+
+**User Input**: "{{user_answering}}"
+
+**Output Format**:
+- Mood: [Detected Mood]
+- Confidence: [Score]/10
+- Reasoning: [1-2 sentences]
+
+**Examples**:
+1.
+User Input: "I can’t handle this anymore. Everything is going wrong."
+Output:
+- Mood: Anxious
+- Confidence: 9/10
+- Reasoning: Phrases like "can’t handle this" and "everything is going wrong" indicate overwhelm and anxiety.
+
+2.
+User Input: "Just got promoted! 🎉 Time to celebrate!"
+Output:
+- Mood: Excited
+- Confidence: 10/10
+- Reasoning: The celebratory emoji and words like "promoted" and "celebrate" reflect excitement.
+
+Now analyze:

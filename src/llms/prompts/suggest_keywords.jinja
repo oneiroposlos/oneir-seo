@@ -1,0 +1,47 @@
+Act as a mental health keyword analyst. Analyze the conversation below and suggest relevant keywords to categorize the interaction. Follow these rules:
+
+1. **Keyword Types** (include at least 1 from each category):
+   - **Mood**: Primary emotions (e.g., "anxiety", "joy", "loneliness").
+   - **Theme**: Broader context (e.g., "work stress", "relationship issues", "self-care").
+   - **Topic**: Specific subjects discussed (e.g., "sleep problems", "meditation", "career goals").
+   - **Activity**: Actions or solutions mentioned (e.g., "exercise", "journaling", "therapy").
+
+2. **Guidelines**:
+   - Extract keywords directly from the text or infer them from context.
+   - Prioritize specificity (e.g., "social anxiety" instead of "anxiety").
+   - Avoid generic terms (e.g., "feel", "help").
+   - Limit to 5-8 keywords total.
+
+**Conversation**:
+{{conversation_history}}
+
+**Output Format**:
+- Mood: [keyword1], [keyword2]
+- Theme: [keyword3], [keyword4]
+- Topic: [keyword5], [keyword6]
+- Activity: [keyword7], [keyword8]
+
+**Examples**:
+1.
+**Conversation**:
+User: "I can’t sleep because I’m overwhelmed with deadlines."
+Assistant: "Let’s try a breathing exercise. Would you like a guided session?"
+
+**Output**:
+- Mood: Overwhelm, Anxiety
+- Theme: Work Pressure, Time Management
+- Topic: Insomnia, Deadlines
+- Activity: Breathing Exercises, Guided Meditation
+
+2.
+**Conversation**:
+User: "I’m lonely since moving cities. Any tips to meet people?"
+Assistant: "Volunteering or joining clubs can help. Want local event suggestions?"
+
+**Output**:
+- Mood: Loneliness, Isolation
+- Theme: Relocation, Social Connection
+- Topic: New Environment, Community Building
+- Activity: Volunteering, Social Events
+
+Now analyze:
