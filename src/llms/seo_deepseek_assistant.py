@@ -1,19 +1,20 @@
 from langchain.output_parsers import PydanticOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts import HumanMessagePromptTemplate, SystemMessagePromptTemplate
-from langchain_openai import ChatOpenAI
+from langchain_deepseek import ChatDeepSeek
 
-from src.config import OPENAI_API_KEY
+from transformers import AutoModelForCausalLM
+
 from src.llms.prompts import system_prompt, extract_mood_prompt_template, suggest_keywords_prompt_template
 from src.llms.schema import ExtractMoodModel, SuggestKeywordsModel
 from src.utils import latency
 
 
-class MoodAssistant:
+class DeepSeekAssistant:
     def __init__(self):
-        self.model = ChatOpenAI(
-            api_key=OPENAI_API_KEY,
-            model="gpt-4o-mini",
+        model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Qwen-7B")
+        self.model = ChatDeepSeek(
+            model=model,
             temperature=0.0
         )
         self._setup_chains()
@@ -61,7 +62,7 @@ class MoodAssistant:
 
 
 if __name__ == '__main__':
-    assistant = MoodAssistant()
+    assistant = DeepSeekAssistant()
     assistant.extract_mood("Today is a great day!")
     assistant.suggest_keywords(
         """
