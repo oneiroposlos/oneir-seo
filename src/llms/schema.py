@@ -9,6 +9,10 @@ class ExtractTextModel(BaseModel):
     reasoning: str
 
 
+class ListExactTextResponse(BaseModel):
+    results: List[ExtractTextModel]
+
+
 class SuggestKeywordsModel(BaseModel):
     mood: List[str]
     theme: List[str]
