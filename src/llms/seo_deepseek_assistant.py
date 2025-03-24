@@ -6,7 +6,7 @@ from langchain_deepseek import ChatDeepSeek
 from transformers import AutoModelForCausalLM
 
 from src.llms.prompts import system_prompt, extract_mood_prompt_template, suggest_keywords_prompt_template
-from src.llms.schema import ExtractMoodModel, SuggestKeywordsModel
+from src.llms.schema import ExtractTextModel, SuggestKeywordsModel
 from src.utils import latency
 
 
@@ -24,7 +24,7 @@ class DeepSeekAssistant:
         self._setup_suggest_keywords_chain()
 
     def _setup_extract_mood_chain(self):
-        output_parser = PydanticOutputParser(pydantic_object=ExtractMoodModel)
+        output_parser = PydanticOutputParser(pydantic_object=ExtractTextModel)
         chat_template = ChatPromptTemplate.from_messages([
             SystemMessagePromptTemplate.from_template(system_prompt),
             HumanMessagePromptTemplate.from_template(
@@ -48,7 +48,7 @@ class DeepSeekAssistant:
         self.suggest_keywords_chain = chat_template | self.model | output_parser
 
     @latency("Extract mood")
-    def extract_mood(self, answering: str = "") -> ExtractMoodModel:
+    def extract_mood(self, answering: str = "") -> ExtractTextModel:
         response = self.extract_mood_chain.invoke({"user_answering": answering})
         print(response)
         print(response.reasoning)
